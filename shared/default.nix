@@ -8,7 +8,7 @@
     ./firefox
 
     # cli
-    # ./git
+    ./git
     ./distrobox
     ./bash
     # ./ssh
