@@ -2,7 +2,7 @@
 let
   cfg = config.hm-modules.bash;
   homeDir = config.home.homeDirectory;
-  dotDir = "${homeDir}/.dotfiles";
+  configDir = "${homeDir}/.config/home-manager/";
 in
 with lib;
 {
@@ -64,6 +64,8 @@ with lib;
         restart-emacs = "systemctl restart --user emacs";
         emacs-debug = "emacs --debug-init";
 
+        hm-switch = "home-manager switch --flake ${configDir}";
+        hm-switch-bkp = "home-manager switch -b backup --flake ${configDir}";
       };
     };
   };
