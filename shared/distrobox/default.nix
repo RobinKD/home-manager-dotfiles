@@ -47,6 +47,7 @@ with lib;
       enable = true;
       package = null;
       settings = {
+        container_additional_volumes = "/nix/store:/nix/store:ro"; # Required to see config stored in /nix/store
         container_manager = "podman";
         non_interactive = "1"; # required for unattended systemd assemble
         container_generate_entry = 1; # if any container exports GUI apps
@@ -63,7 +64,7 @@ with lib;
           # Do not forget to export emacs and emacsclient after first creation
           clone = "base-arch";
           nvidia = true;
-          additional_packages = "base-devel git emacs tree-sitter shfmt shellcheck enchant pandoc cmake hunspell hunspell-en_gb hunspell-en_us hunspell-fr-comprehensive";
+          init_hooks = "sudo pacman -Syu base-devel git emacs tree-sitter shfmt shellcheck enchant pandoc cmake hunspell hunspell-en_gb hunspell-en_us hunspell-fr-comprehensive --noconfirm";
           # Install nixfmt through yay
           # git clone https://aur.archlinux.org/yay.git &>/dev/null && cd yay && makepkg -cCsi --noconfirm && yay -Sy nixfmt
           entry = true;
