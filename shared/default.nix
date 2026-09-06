@@ -9,6 +9,7 @@
 
     # cli
     # ./git
+    ./distrobox
     ./bash
     # ./ssh
   ];
