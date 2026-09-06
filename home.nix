@@ -1,5 +1,10 @@
 { config, pkgs, ... }:
-
+let
+  nvidiaVersion = "610.57.04";
+  # Get SHA with nix store prefetch-file https://download.nvidia.com/XFree86/Linux-x86_64/${version}/NVIDIA-Linux-x86_64-${version}.run
+  nvidiaSha256 = "sha256-suk1xmuDuwDAyFe8jg7g/VLekoa0DJzB7sKafOfrEW0=";
+  # Might need to activate a script shown in hm activation (and create folder for it)
+in
 {
   imports = [
     ./shared
@@ -28,7 +33,17 @@
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config = {
+    allowUnfree = true;
+    nvidia.acceptLicense = true;
+  };
 
-  targets.genericLinux.enable = true;
+  targets.genericLinux = {
+    enable = true;
+    gpu.nvidia = {
+      enable = true;
+      version = nvidiaVersion;
+      sha256 = nvidiaSha256;
+    };
+  };
 }
