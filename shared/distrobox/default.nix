@@ -47,7 +47,7 @@ with lib;
       enable = true;
       package = null;
       settings = {
-        container_additional_volumes = "/nix/store:/nix/store:ro"; # Required to see config stored in /nix/store
+        container_additional_volumes = "/nix/store:/nix/store:ro /usr/share/fonts:/usr/share/fonts:ro"; # Required to see config stored in /nix/store
         container_manager = "podman";
         non_interactive = "1"; # required for unattended systemd assemble
         container_generate_entry = 1; # if any container exports GUI apps
