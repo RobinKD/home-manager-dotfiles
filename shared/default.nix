@@ -12,6 +12,9 @@
     ./distrobox
     ./bash
     # ./ssh
+
+    # GUI
+    ./gnome
   ];
 
   # None yet

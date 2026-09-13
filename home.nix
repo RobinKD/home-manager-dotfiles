@@ -16,6 +16,7 @@ in
     bash.enable = true;
     git.enable = true;
     distrobox.enable = true;
+    gnome.enable = true;
   };
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
