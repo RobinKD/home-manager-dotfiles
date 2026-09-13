@@ -4,7 +4,6 @@
   pkgs,
   ...
 }:
-# Sorry Copilot or whatever, you won't have anything except my username...
 let
   cfg = config.hm-modules.git;
 in
