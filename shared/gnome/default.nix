@@ -18,7 +18,6 @@ with lib;
   config = mkIf cfg.enable {
     home.packages = with pkgs.gnomeExtensions; [
       appindicator
-      mouse-follows-focus-2
       multi-monitor-bar
       night-light-scheduler
       soft-brightness-plus

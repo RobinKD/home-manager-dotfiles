@@ -73,7 +73,6 @@ with lib.hm.gvariant;
   "org/gnome/shell" = {
     disable-user-extensions = false;
     enabled-extensions = [
-      "mouse-follows-focus@crisidev.org"
       "soft-brightness-plus@joelkitching.com"
       "night-light-scheduler@storageb.github.com"
       "multi-monitors-bar@frederykabryan"
