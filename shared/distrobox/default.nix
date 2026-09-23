@@ -65,7 +65,7 @@ with lib;
           clone = "base-arch";
           nvidia = true;
           init_hooks = "sudo pacman -Syu base-devel git emacs tree-sitter shfmt shellcheck enchant pandoc cmake ripgrep hunspell hunspell-en_gb hunspell-en_us hunspell-fr-comprehensive --noconfirm";
-          # Install nixfmt through yay
+          # Install nixfmt/stylua through yay
           # git clone https://aur.archlinux.org/yay.git &>/dev/null && cd yay && makepkg -cCsi --noconfirm && yay -Sy nixfmt
           entry = true;
         };
