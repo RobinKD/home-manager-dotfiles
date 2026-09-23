@@ -15,6 +15,7 @@
 
     # GUI
     ./gnome
+    ./hyprland
   ];
 
   # None yet
