@@ -30,5 +30,11 @@ with lib;
     # Noctalia settings
     xdg.configFile."noctalia/config.toml".source = ./noctalia-settings.toml;
 
+    # Hyprland config
+    xdg.configFile."hypr/hyprland.lua".source = ./hypr-config.lua;
+    xdg.configFile."hypr/monitors.lua".source = ./monitor-settings.lua;
+    xdg.configFile."hypr/generalconf.lua".source = ./general-config.lua;
+    xdg.configFile."hypr/keybinds.lua".source = ./keybinds.lua;
+    xdg.configFile."hypr/w-rules.lua".source = ./w-rules.lua;
   };
 }
