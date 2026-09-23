@@ -23,6 +23,17 @@ hl.bind(
 	hl.dsp.exec_cmd(ipc .. "panel-toggle kenn/keybind-cheatsheet:cheatsheet"),
 	{ description = "Show keybind cheatsheet" }
 )
+hl.bind(mainMod .. "+ Insert", hl.dsp.exec_cmd(ipc .. "screenshot-region"), { description = "Screenshot region" })
+hl.bind(
+	mainMod .. "+ SHIFT + Insert",
+	hl.dsp.exec_cmd(ipc .. "screenshot-fullscreen"),
+	{ description = "Screenshot fullscreen" }
+)
+hl.bind(
+	mainMod .. "+ ALT + Insert",
+	hl.dsp.exec_cmd(ipc .. "screenshot-fullscreen all"),
+	{ description = "Screenshot fullscreen" }
+)
 
 -- 2. App binds
 local emacs = "distrobox enter emacs -- "
@@ -54,7 +65,12 @@ hl.bind(mainMod .. "+ SHIFT + C", hl.dsp.exec_cmd(ipc .. "settings-toggle"), { d
 hl.bind("ALT + Tab", hl.dsp.exec_cmd(ipc .. "window-switcher"), { description = "Open window switcher" })
 
 -- 3. Window handling
-hl.bind(mainMod .. " + M", hl.dsp.window.fullscreen({ mode = "maximized" }), { description = "Toggle fullscreen" })
+hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen({ mode = "fullscreen" }), { description = "Toggle fullscreen" })
+hl.bind(
+	mainMod .. " + M",
+	hl.dsp.window.fullscreen({ mode = "maximized" }),
+	{ description = "Toggle maximized window" }
+)
 hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }), { description = "Toggle floating window" })
 hl.bind(mainMod .. " + R", hl.dsp.layout("colresize +conf"), { description = "Increase column width" })
 hl.bind(mainMod .. " + SHIFT + R", hl.dsp.layout("colresize -conf"), { description = "Decrease column width" })
