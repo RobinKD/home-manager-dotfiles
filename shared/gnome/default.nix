@@ -17,15 +17,14 @@ with lib;
 
   config = mkIf cfg.enable {
     home.packages = with pkgs.gnomeExtensions; [
+      advanced-alttab-window-switcher
       appindicator
       multi-monitor-bar
+      mouse-follows-focus-2
       night-light-scheduler
       soft-brightness-plus
       sound-output-organizer
       vitals
-      paperwm
-
-      # VShell PaperWM
     ];
     dconf = {
       settings = dconf-settings;

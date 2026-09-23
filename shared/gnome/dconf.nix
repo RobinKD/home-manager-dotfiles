@@ -43,6 +43,19 @@ with lib.hm.gvariant;
     focus-mode = "sloppy";
   };
 
+  "org/gnome/desktop/wm/keybindings" = {
+    begin-resize = [ "<Super>r" ];
+    close = [ "<Super>q" ];
+    lower = [ "<Super>comma" ];
+    move-to-monitor-down = [ "<Shift><Super>Down" ];
+    move-to-monitor-left = [ "<Shift><Super>Left" ];
+    move-to-monitor-right = [ "<Shift><Super>Right" ];
+    move-to-monitor-up = [ "<Shift><Super>Up" ];
+    raise-or-lower = [ "<Super>period" ];
+    toggle-fullscreen = [ "<Shift><Super>f" ];
+    toggle-maximized = [ "<Super>m" ];
+  };
+
   "org/gnome/settings-daemon/plugins/color" = {
     night-light-enabled = true;
     night-light-schedule-automatic = false;
@@ -79,7 +92,8 @@ with lib.hm.gvariant;
       "appindicatorsupport@rgcjonas.gmail.com"
       "sound-output-organizer@sound-output-organizer"
       "Vitals@CoreCoding.com"
-      "paperwm@paperwm.github.com"
+      "advanced-alt-tab@G-dH.github.com"
+      "mouse-follows-focus@crisidev.org"
     ];
     favorite-apps = [
       "firefox.desktop"
@@ -88,8 +102,6 @@ with lib.hm.gvariant;
       "org.signal.Signal.desktop"
       "com.discordapp.Discord.desktop"
       "com.tradingview.tradingview.desktop"
-      "org.gnome.Nautilus.desktop"
-      "org.gnome.Ptyxis.desktop"
     ];
   };
 
@@ -152,55 +164,23 @@ with lib.hm.gvariant;
     ];
   };
 
-  "org/gnome/shell/extensions/paperwm" = {
-    cycle-height-steps = [
-      0.382
-      0.5
-      0.618
-      1.0
-    ];
-    cycle-width-steps = [
-      0.382
-      0.5
-      0.618
-      1.0
-    ];
-    disable-topbar-styling = false;
-    edge-preview-enable = true;
-    edge-preview-scale = 0.15;
-    gesture-enabled = false;
-    gesture-workspace-fingers = 4;
-    horizontal-margin = 1;
-    last-used-display-server = "Wayland";
-    maximize-within-tiling = true;
-    minimap-scale = 0.15;
-    restore-attach-modal-dialogs = "true";
-    restore-edge-tiling = "true";
-    restore-keybinds = ''{"toggle-tiled-left":{"bind":"[\\"<Super>Left\\"]","schema_id":"org.gnome.mutter.keybindings"},"toggle-tiled-right":{"bind":"[\\"<Super>Right\\"]","schema_id":"org.gnome.mutter.keybindings"},"cancel-input-capture":{"bind":"[\\"<Super><Shift>Escape\\"]","schema_id":"org.gnome.mutter.keybindings"},"restore-shortcuts":{"bind":"[\\"<Super>Escape\\"]","schema_id":"org.gnome.mutter.wayland.keybindings"},"switch-to-workspace-last":{"bind":"[\\"<Super>End\\"]","schema_id":"org.gnome.desktop.wm.keybindings"},"switch-panels":{"bind":"[\\"<Control><Alt>Tab\\"]","schema_id":"org.gnome.desktop.wm.keybindings"},"switch-group-backward":{"bind":"[\\"<Shift><Super>Above_Tab\\",\\"<Shift><Alt>Above_Tab\\"]","schema_id":"org.gnome.desktop.wm.keybindings"},"lower":{"bind":"[\\"<Super>Down\\"]","schema_id":"org.gnome.desktop.wm.keybindings"},"switch-to-workspace-1":{"bind":"[\\"<Super>Home\\"]","schema_id":"org.gnome.desktop.wm.keybindings"},"move-to-monitor-left":{"bind":"[\\"<Super><Shift>Left\\"]","schema_id":"org.gnome.desktop.wm.keybindings"},"move-to-monitor-down":{"bind":"[\\"<Super><Shift>Down\\"]","schema_id":"org.gnome.desktop.wm.keybindings"},"switch-to-workspace-left":{"bind":"[\\"<Super>Page_Up\\",\\"<Super>KP_Prior\\",\\"<Super><Alt>Left\\",\\"<Control><Alt>Left\\"]","schema_id":"org.gnome.desktop.wm.keybindings"},"toggle-fullscreen":{"bind":"[\\"<Super>f\\"]","schema_id":"org.gnome.desktop.wm.keybindings"},"switch-group":{"bind":"[\\"<Super>Above_Tab\\",\\"<Alt>Above_Tab\\"]","schema_id":"org.gnome.desktop.wm.keybindings"},"move-to-workspace-left":{"bind":"[\\"<Super><Shift>Page_Up\\",\\"<Super><Shift>KP_Prior\\",\\"<Super><Shift><Alt>Left\\",\\"<Control><Shift><Alt>Left\\"]","schema_id":"org.gnome.desktop.wm.keybindings"},"move-to-workspace-right":{"bind":"[\\"<Super><Shift>Page_Down\\",\\"<Super><Shift>KP_Next\\",\\"<Super><Shift><Alt>Right\\",\\"<Control><Shift><Alt>Right\\"]","schema_id":"org.gnome.desktop.wm.keybindings"},"switch-panels-backward":{"bind":"[\\"<Shift><Control><Alt>Tab\\"]","schema_id":"org.gnome.desktop.wm.keybindings"},"move-to-workspace-up":{"bind":"[\\"<Control><Shift><Alt>Up\\"]","schema_id":"org.gnome.desktop.wm.keybindings"},"switch-to-workspace-right":{"bind":"[\\"<Super>Page_Down\\",\\"<Super>KP_Next\\",\\"<Super><Alt>Right\\",\\"<Control><Alt>Right\\"]","schema_id":"org.gnome.desktop.wm.keybindings"},"move-to-workspace-down":{"bind":"[\\"<Control><Shift><Alt>Down\\"]","schema_id":"org.gnome.desktop.wm.keybindings"},"switch-applications":{"bind":"[\\"<Super>Tab\\"]","schema_id":"org.gnome.desktop.wm.keybindings"},"switch-windows":{"bind":"[\\"<Alt>Tab\\"]","schema_id":"org.gnome.desktop.wm.keybindings"},"raise-or-lower":{"bind":"[\\"<Super>Up\\"]","schema_id":"org.gnome.desktop.wm.keybindings"},"move-to-monitor-right":{"bind":"[\\"<Super><Shift>Right\\"]","schema_id":"org.gnome.desktop.wm.keybindings"},"switch-applications-backward":{"bind":"[\\"<Shift><Super>Tab\\"]","schema_id":"org.gnome.desktop.wm.keybindings"},"switch-windows-backward":{"bind":"[\\"<Shift><Alt>Tab\\"]","schema_id":"org.gnome.desktop.wm.keybindings"},"move-to-monitor-up":{"bind":"[\\"<Super><Shift>Up\\"]","schema_id":"org.gnome.desktop.wm.keybindings"},"shift-overview-up":{"bind":"[\\"<Super><Alt>Up\\"]","schema_id":"org.gnome.shell.keybindings"},"shift-overview-down":{"bind":"[\\"<Super><Alt>Down\\"]","schema_id":"org.gnome.shell.keybindings"},"focus-active-notification":{"bind":"[\\"<Super>n\\"]","schema_id":"org.gnome.shell.keybindings"},"rotate-video-lock-static":{"bind":"[\\"<Super>o\\",\\"XF86RotationLockToggle\\"]","schema_id":"org.gnome.settings-daemon.plugins.media-keys"}}'';
-    restore-workspaces-only-on-primary = "true";
-    selection-border-radius-top = 0;
-    selection-border-size = 0;
-    show-focus-mode-icon = false;
-    show-open-position-icon = false;
-    show-window-position-bar = false;
-    vertical-margin = 1;
-    vertical-margin-bottom = 1;
-    window-gap = 1;
+  "org/gnome/shell/extensions/advanced-alt-tab-window-switcher" = {
+    hot-edge-fullscreen = false;
+    super-key-mode = 1;
+    switcher-popup-pointer-timeout = 600;
+    switcher-popup-start-search = false;
+    win-switcher-popup-filter = 1;
   };
 
-  "org/gnome/shell/extensions/paperwm/keybindings" = {
-    close-window = [ "<Super>q" ];
-    move-left = [ "<Shift><Super>comma" ];
-    move-right = [ "<Shift><Super>period" ];
-    new-window = [ "<Super>n" ];
-    resize-h-dec = [ "<Shift><Super>underscore" ];
-    resize-w-inc = [ "<Super>equal" ];
-    toggle-scratch = [ "<Control><Super>s" ];
+  "org/gnome/shell/extensions/mouse-follows-focus" = {
+    bottom-bar-height = 0;
+    top-bar-height = 0;
   };
 
   "org/gnome/shell/keybindings" = {
     switch-to-application-1 = [ "<Super>1" ];
     switch-to-application-2 = [ "<Super>2" ];
+    close = [ "<Super>q" ];
     toggle-message-tray = [ ];
   };
 
