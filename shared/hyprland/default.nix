@@ -26,5 +26,9 @@ with lib;
       gtk.enable = true;
       x11.enable = true;
     };
+
+    # Noctalia settings
+    xdg.configFile."noctalia/config.toml".source = ./noctalia-settings.toml;
+
   };
 }

@@ -1,0 +1,130 @@
+[bar.default]
+background_opacity = 0.3
+capsule = true
+capsule_opacity = 0.3
+capsule_thickness = 1.0
+end = [
+    "tray",
+    "syncthing",
+    "notifications",
+    "clipboard",
+    "summary",
+    "network",
+    "bluetooth",
+    "volume",
+    "brightness",
+    "battery",
+    "control-center",
+    "session"
+]
+margin_ends = 10
+start = [ "workspaces", "special-workspaces" ]
+
+[brightness]
+enable_ddcutil = true
+minimum_brightness = 0.05
+sync_all_monitors = true
+
+[control_center]
+width = 980
+
+[desktop_widgets]
+schema_version = 2
+widget_order = []
+
+    [desktop_widgets.grid]
+    cell_size = 16
+    major_interval = 4
+    visible = true
+
+    [desktop_widgets.widget]
+
+[idle]
+behavior_order = [ "lock", "screen-off", "lock-and-suspend" ]
+
+    [idle.behavior.lock]
+    action = "lock"
+    enabled = true
+    timeout = 600.0
+
+    [idle.behavior.lock-and-suspend]
+    action = "lock_and_suspend"
+    enabled = true
+    timeout = 900.0
+
+    [idle.behavior.screen-off]
+    action = "screen_off"
+    enabled = true
+    timeout = 660.0
+
+[location]
+address = "Paris"
+
+[nightlight]
+enabled = true
+temperature_night = 3500
+
+[plugin_settings."kenn/keybind-cheatsheet"]
+hyprland_parser = "lua"
+
+[plugins]
+enabled = [
+    "kenn/keybind-cheatsheet",
+    "noctalia/kaomoji",
+    "nightwatch75/file-search",
+    "jamesfeeder/special-workspaces",
+    "tmelik/system-monitor",
+    "rylos/syncthing"	
+]
+
+[shell]
+polkit_agent = true
+
+    [shell.launcher]
+    app_grid = true
+    fetch_exchange_rates = false
+
+    [shell.panel]
+    control_center_placement = "floating"
+
+[theme]
+builtin = "Catppuccin"
+community_palette = "Oxocarbon"
+mode = "dark"
+source = "builtin"
+wallpaper_scheme = "m3-content"
+
+    [theme.templates]
+    builtin_ids = [ "kitty" ]
+
+[wallpaper]
+directory = "/var/home/keanu/Pictures/wallpapers"
+
+    [wallpaper.automation]
+    enabled = true
+    recursive = false
+
+[widget.syncthing]
+type = "rylos/syncthing:bar"
+
+[widget.special-workspaces]
+type = "jamesfeeder/special-workspaces:special-workspaces"
+
+[widget.summary]
+show_cpu_temperature = false
+show_disk = false
+show_gpu_temperature = "off"
+show_swap = false
+type = "tmelik/system-monitor:summary"
+
+[widget.sysmon]
+visualization = "none"
+
+[widget.tray]
+hide_passive = false
+
+[widget.workspaces]
+empty_color = "on_secondary"
+focused_output_only = true
+label_source = "name"
+max_label_chars = 10
