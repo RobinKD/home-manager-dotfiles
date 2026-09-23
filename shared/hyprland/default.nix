@@ -14,8 +14,17 @@ with lib;
   };
 
   config = mkIf cfg.enable {
-    home.packages = with pkgs; [
-      rose-pine-hyprcursor
-    ];
+    home.pointerCursor = {
+      enable = true;
+      package = pkgs.rose-pine-hyprcursor; # Or your chosen package
+      name = "rose-pine-hyprcursor"; # The name defined in the theme's manifest.hl
+      size = 24;
+      hyprcursor = {
+        enable = true;
+        size = 24;
+      };
+      gtk.enable = true;
+      x11.enable = true;
+    };
   };
 }
