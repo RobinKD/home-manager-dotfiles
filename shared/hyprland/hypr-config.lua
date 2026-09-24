@@ -26,9 +26,9 @@ require("monitors")
 -- Or execute your favorite apps at launch like this:
 --
 hl.on("hyprland.start", function()
-	hl.exec_cmd("noctalia")
 	hl.exec_cmd("xrandr --output HDMI-A-1 --primary")
 	hl.exec_cmd("hyprctl setcursor rose-pine-hyprcursor 32")
+	hl.exec_cmd("noctalia --daemon")
 end)
 
 -------------------------------
@@ -40,6 +40,7 @@ end)
 hl.env("XCURSOR_SIZE", "24")
 hl.env("HYPRCURSOR_THEME", "rose-pine-hyprcursor")
 hl.env("HYPRCURSOR_SIZE", "32")
+hl.env("PATH", os.getenv("PATH") .. ":/home/linuxbrew/.linuxbrew/bin")
 
 -----------------------
 ----- PERMISSIONS -----
