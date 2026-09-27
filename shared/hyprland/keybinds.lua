@@ -53,6 +53,18 @@ hl.bind(
 	hl.dsp.workspace.toggle_special("Emacs"),
 	{ description = "Toggle Emacs special workspace" }
 )
+hl.bind(
+	mainMod .. " + A",
+	hl.dsp.exec_cmd(
+		emacs .. "emacsclient -c -a emacs --eval '(progn (org-super-agenda-full-view) (delete-other-windows))'"
+	),
+	{ description = "Open Emacs client with super agenda" }
+)
+hl.bind(
+	mainMod .. " + SHIFT + A",
+	hl.dsp.exec_cmd(emacs .. "emacsclient -c -a emacs --eval '(progn (org-capture) (delete-other-windows))'"),
+	{ description = "Open Emacs client with super agenda" }
+)
 hl.bind(mainMod .. " + D", hl.dsp.exec_cmd(fileManager), { description = "Open file manager" })
 hl.bind(
 	mainMod .. "+Space",
