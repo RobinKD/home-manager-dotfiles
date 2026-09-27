@@ -15,8 +15,11 @@ local ipc = "noctalia msg "
 hl.bind(mainMod .. " + Q", hl.dsp.window.close(), { description = "Close window" })
 
 hl.bind(mainMod .. " + SHIFT + Q", hl.dsp.window.kill(), { description = "Force kill window" })
-hl.bind(mainMod .. "+ ALT + P", hl.dsp.exec_cmd(ipc .. "session shutdown"), { description = "Shut down system" })
-hl.bind(mainMod .. "+ ALT + X", hl.dsp.exec_cmd(ipc .. "session logout"), { description = "Log out of session" })
+hl.bind(
+	mainMod .. "+ ESCAPE",
+	hl.dsp.exec_cmd(ipc .. "panel-toggle session"),
+	{ description = "Show lock, log out and shutdown panel" }
+)
 hl.bind(mainMod .. "+ ALT + L", hl.dsp.exec_cmd(ipc .. "session lock"), { description = "Lock session" })
 hl.bind(
 	mainMod .. "+ SHIFT + H",
