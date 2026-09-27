@@ -35,7 +35,7 @@ hl.bind(
 hl.bind(
 	mainMod .. "+ ALT + Insert",
 	hl.dsp.exec_cmd(ipc .. "screenshot-fullscreen all"),
-	{ description = "Screenshot fullscreen" }
+	{ description = "Screenshot fullscreen all monitors" }
 )
 
 -- 2. App binds
