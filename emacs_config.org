@@ -801,6 +801,8 @@ TODO keywords do not have correct font in super-agenda
   		   :template ("#+TITLE: %:description\n"
   			      "Added on: %u"
   			      "Source: %:link\n\n %?"))
+  		  ("Org Roam Capture" :keys "r"
+  		   :function (lambda () (org-roam-capture)))
   		  ("Trading" :keys "t"
   		   :file org-trading-journal-file
   		   :children (("Trade table" :keys "t"
