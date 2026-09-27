@@ -643,7 +643,6 @@ In-buffer auto completion
   	  org-icalendar-include-body nil
   	  org-screenshot-image-directory "./screenshots/"
   	  org-capture-todo-file "~/notes/tasks.org"
-  	  org-capture-phd-file "~/notes/PhD_whatever.org"
   	  org-trading-journal-file "~/notes/trading_journal.org"
   	  org-trade-ideas-file "~/notes/trade_ideas.org")
 
@@ -790,48 +789,6 @@ TODO keywords do not have correct font in super-agenda
   		   :type entry
   		   :template ("* %?"
   			      "SCHEDULED: %^{Date:}t"))
-  		  ("PhD" :keys "d"
-  		   :file org-capture-phd-file
-  		   :type entry
-  		   :headline "PhD Tasks"
-  		   :children (("PhD Tasks" :keys "t"
-  			       :prepend t
-  			       :template ("* TODO %?"
-  					  "%i %a")
-  			       :children (("General task" :keys "k"
-  					   :template ("* TODO %?"
-  						      "%i %a"))
-  					  ("Task with deadline" :keys "d"
-  					   :template ("* TODO %?"
-  						      "DEADLINE: %^{Deadline:}t"
-  						      "%i %a"))
-  					  ("Scheduled Task" :keys "s"
-  					   :template ("* TODO %?"
-  						      "SCHEDULED: %^{Start time:}t"))))
-  			      ("Meetings" :keys "m"
-  			       :headline "Meetings"
-  			       :type entry
-  			       :children (("Meeting" :keys "m"
-  					   :template ("* %?"
-  						      "SCHEDULED: %^{Date:}T"))
-  					  ("Regular advancement meeting" :keys "r"
-  					   :headline "Regular advancement meetings"
-  					   :template ("* Regular advancement meeting"
-  						      "SCHEDULED: %^{Date:}T"))
-  					  ))
-  			      ("Formations" :keys "f"
-  			       :headline "Formations / Conferences"
-  			       :type entry
-  			       :template ("* %?"
-  					  "SCHEDULED: %^{Date:}T"))
-  			      ("Scheduled stuff" :keys "s"
-  			       :headline "Scheduled"
-  			       :template ("* %?"
-  					  "SCHEDULED: %^{Date:}t"))
-  			      ("Ideas" :keys "i"
-  			       :headline "Ideas"
-  			       :type entry
-  			       :template ("* IDEA %?"))))
   		  ("Protocol with selection" :keys "p"
   		   :file my/generate-org-note-name
   		   :type plain
