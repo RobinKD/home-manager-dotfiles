@@ -36,6 +36,14 @@ hl.window_rule({
 
 -- Hyprland-run windowrule
 hl.window_rule({
+	name = "maximizedApps",
+	match = {
+		class = "^(firefox|librewolf)$",
+	},
+	maximize = true,
+})
+
+hl.window_rule({
 	match = { class = "dev.noctalia.Noctalia" },
 	float = true,
 	size = { 1080, 920 },
