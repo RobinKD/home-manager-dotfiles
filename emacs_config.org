@@ -4,7 +4,7 @@
 #+options: author:nil prop:t
 #+exclude_tags: noexport
 
-* Bootstrap stuff for VMs
+* Bootstrap stuff
 #+begin_src elisp
   ;;; -*- lexical-binding: t; -*-   
   (require 'package)
@@ -23,7 +23,29 @@
 
   (require 'use-package)
   (setq use-package-always-ensure t)
+
+  ;;; Bootstrap straight
+  (defvar bootstrap-version)
+  (let ((bootstrap-file
+         (expand-file-name
+  	"straight/repos/straight.el/bootstrap.el"
+  	(or (bound-and-true-p straight-base-dir)
+  	    user-emacs-directory)))
+        (bootstrap-version 7))
+    (unless (file-exists-p bootstrap-file)
+      (with-current-buffer
+  	(url-retrieve-synchronously
+  	 "https://raw.githubusercontent.com/radian-software/straight.el/develop/install.el"
+  	 'silent 'inhibit-cookies)
+        (goto-char (point-max))
+        (eval-print-last-sexp)))
+    (load bootstrap-file nil 'nomessage))
 #+end_src
+#+begin_src elisp :tangle ~/.emacs.d/early-init.el
+  ;;; -*- lexical-binding: t; -*-   
+  (setq package-enable-at-startup nil)
+#+end_src
+
 
 * Basic stuff
 Basic things such as user vars, basic keyboard stuff or trashing and scrolling behaviour.
@@ -437,8 +459,8 @@ In-buffer auto completion
         ;; Recommended: Enable Corfu globally.  This is recommended since Dabbrev can
         ;; be used globally (M-/).  See also the customization variable
         ;; `global-corfu-modes' to exclude certain modes.
-        :init
-        (global-corfu-mode)
+        ;; :init
+        ;; (global-corfu-mode)
         :bind
         (:map corfu-map
       	  ;; Option 1: Unbind RET completely
@@ -1390,7 +1412,7 @@ Treesit is now included in Emacs 29, so doesn't need much
 
 * LSP Stuff
 ** Eglot
-#+begin_src elisp
+#+begin_src elisp :tangle no
   (defun my/eglot-capf ()
     (setq-local completion-at-point-functions
     	      (list (cape-capf-super
@@ -1447,6 +1469,34 @@ Treesit is now included in Emacs 29, so doesn't need much
     		)
       ;; (setq eglot-events-buffer-size 0)
     )
+#+end_src
+** LSP-bridge
+#+begin_src elisp
+  (use-package lsp-bridge
+    :straight '(lsp-bridge :type git :host github :repo "manateelazycat/lsp-bridge"
+              :files (:defaults "*.el" "*.py" "acm" "core" "langserver" "multiserver" "resources")
+              :build (:not compile))
+    :after corfu
+    :hook (lsp-bridge-mode . (lambda () corfu-mode -1))
+    :bind
+    (:prefix-map lsp-bridge-map
+  	       :prefix-docstring "LSP Bridge map"
+  	       :prefix "C-c e"
+  	       ("a" . lsp-bridge-code-action)
+  	       ("f" . lsp-bridge-code-format)
+  	       ("r" . lsp-bridge-rename)
+  	       ("R" . lsp-bridge-find-references)
+  	       ("s" . lsp-bridge-workspace-list-symbols)
+  	       ("d" . lsp-bridge-popup-documentation)
+  	       ("D" . lsp-bridge-find-def)
+  	       ("m" . lsp-bridge-imenu)
+  	       ("p" . lsp-bridge-peek)
+  	       ("i" . lsp-bridge-find-impl)
+  	       )
+    :init
+    (setq acm-enable-capf t)
+    
+    (global-lsp-bridge-mode))
 #+end_src
 
 * YASnippets

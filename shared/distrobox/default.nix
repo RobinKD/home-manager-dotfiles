@@ -64,9 +64,11 @@ with lib;
           # Do not forget to export emacs and emacsclient after first creation
           clone = "base-arch";
           nvidia = true;
-          init_hooks = "sudo pacman -Syu base-devel git emacs tree-sitter shfmt shellcheck enchant pandoc cmake ripgrep hunspell hunspell-en_gb hunspell-en_us hunspell-fr-comprehensive --noconfirm";
+          additional_packages = "git base-devel emacs tree-sitter shfmt shellcheck enchant pandoc cmake ripgrep hunspell hunspell-en_gb hunspell-en_us hunspell-fr-comprehensive lua-language-server cargo python-orjson python-six python-setuptools python-paramiko python-rapidfuzz python-watchdog python-packaging";
           # Install nixfmt/stylua through yay
-          # git clone https://aur.archlinux.org/yay.git &>/dev/null && cd yay && makepkg -cCsi --noconfirm && yay -Sy nixfmt
+          # git clone https://aur.archlinux.org/yay.git &>/dev/null && cd yay && makepkg -cCsi --noconfirm && yay -Sy nixfmt stylua
+          # Install python packages for LSP bridge
+          # yay -Syu python-epc python-sexpdata
           entry = true;
         };
       };
