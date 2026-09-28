@@ -14,7 +14,7 @@
   };
 
   outputs =
-    { nixpkgs, home-manager, ... } @ inputs:
+    { nixpkgs, home-manager, ... }@inputs:
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
@@ -22,7 +22,7 @@
 
       # Extra packages if I want some one day
       # extra-pkgs = {
-    
+      #
       # };
     in
     {
@@ -35,7 +35,7 @@
 
         # Optionally use extraSpecialArgs
         # to pass through arguments to home.nix
-	# extraSpecialArgs = {
+        # extraSpecialArgs = {
         #   extra-pkgs = extra-pkgs;
         # };
       };
