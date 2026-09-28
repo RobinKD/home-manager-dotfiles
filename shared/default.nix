@@ -18,8 +18,16 @@
     ./hyprland
   ];
 
-  # None yet
-  # home.packages = with pkgs; [
+  home.packages = with pkgs; [
+    socat
+    ripgrep-all
+    nixfmt
+    stylua
+    lua-language-server
+    shfmt
+    shellcheck
+    pandoc
+    nixd
+  ];
 
-  # ];
 }
