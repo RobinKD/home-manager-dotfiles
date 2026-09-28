@@ -633,6 +633,7 @@ In-buffer auto completion
 #+begin_src elisp
   (use-package org
     :demand t
+    :straight t
     :init
     (setq org-directory "~/notes/"
   	  org-agenda-files '("~/notes/tasks.org" "~/notes/trading_journal.org" "~/notes/trade_ideas.org")
@@ -698,6 +699,22 @@ In-buffer auto completion
     (add-to-list 'org-file-apps '("\\.mkv\\'" . "mpv %s"))
     )
 #+end_src
+
+Org-protocol desktop file
+Ensure mime handler changed with
+- xdg-mime default emacs-org-protocol.desktop
+  x-scheme-handler/org-protocol
+- xdg-mime query default x-scheme-handler/org-protocol
+#+begin_src
+[Desktop Entry]
+Name=Emacs Org Protocol
+Exec=/usr/bin/distrobox-enter -n emacs -- /usr/bin/emacsclient --alternate-editor= %u
+Type=Application
+Terminal=false
+NoDisplay=true
+MimeType=x-scheme-handler/org-protocol;
+#+end_src
+
 
 ** FIXME Theming
 TODO keywords do not have correct font in super-agenda
