@@ -1447,13 +1447,15 @@ Treesit is now included in Emacs 29, so doesn't need much
     )
 #+end_src
 ** LSP-bridge
+Requires symlink of python exec into .local/bin (do it outside distrobox)
 #+begin_src elisp
   (use-package lsp-bridge
     :straight '(lsp-bridge :type git :host github :repo "manateelazycat/lsp-bridge"
-              :files (:defaults "*.el" "*.py" "acm" "core" "langserver" "multiserver" "resources")
-              :build (:not compile))
+  			 :files (:defaults "*.el" "*.py" "acm" "core" "langserver" "multiserver" "resources")
+  			 :build (:not compile))
     :after corfu
-    :hook (lsp-bridge-mode . (lambda () corfu-mode -1))
+    :hook ((lsp-bridge-mode . (lambda () corfu-mode -1))
+  	 (prog-mode . lsp-bridge-mode))
     :bind
     (:prefix-map lsp-bridge-map
   	       :prefix-docstring "LSP Bridge map"
@@ -1470,11 +1472,13 @@ Treesit is now included in Emacs 29, so doesn't need much
   	       ("i" . lsp-bridge-find-impl)
   	       )
     :init
-    (setq acm-enable-capf t)
-    
-    (global-lsp-bridge-mode))
+    (setq acm-enable-capf t
+  	acm-enable-quick-access t
+  	acm-enable-tabnine nil
+  	acm-enable-copilot nil
+  	acm-enable-codeium nil)
+    )
 #+end_src
-
 * YASnippets
 Because I want to lazily add stuff
 #+begin_src elisp
