@@ -1,8 +1,8 @@
 { config, pkgs, ... }:
 let
-  nvidiaVersion = "610.57.04";
+  nvidiaVersion = "615.71.09";
   # Get SHA with nix store prefetch-file https://download.nvidia.com/XFree86/Linux-x86_64/${version}/NVIDIA-Linux-x86_64-${version}.run
-  nvidiaSha256 = "sha256-suk1xmuDuwDAyFe8jg7g/VLekoa0DJzB7sKafOfrEW0=";
+  nvidiaSha256 = "sha256-zc7tIrvrYSSNGm3qvCWWZz46ZQFpjucayNL9wo87cP4=";
   # Might need to activate a script shown in hm activation (and create folder for it)
 in
 {
