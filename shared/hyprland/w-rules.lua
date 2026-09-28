@@ -41,6 +41,7 @@ hl.window_rule({
 		class = ".*",
 	},
 	float = true,
+	pin = true,
 })
 
 hl.window_rule({
