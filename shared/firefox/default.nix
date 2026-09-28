@@ -9,15 +9,33 @@ let
   cfgff = config.hm-modules.firefox;
   cfglw = config.hm-modules.librewolf;
   extensions = {
-    # Can easily be found through installation, then about:debugging#/runtime/this-firefox
+    # ID Can easily be found through installation, then about:debugging#/runtime/this-firefox
+    # Ublock-origin
     "uBlock0@raymondhill.net" = {
       installation_mode = "force_installed";
       install_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
       private_browsing = true;
     };
+    # Bitwarden
     "{446900e4-71c2-419f-a6a7-df9c091e268b}" = {
       installation_mode = "force_installed";
       install_url = "https://addons.mozilla.org/firefox/downloads/latest/bitwarden-password-manager/latest.xpi";
+    };
+    # Copy as org-mode
+    "{59e590fc-6635-45fe-89c7-af637eb4b9c0}" = {
+      installation_mode = "force_installed";
+      install_url = "https://addons.mozilla.org/firefox/downloads/file/3939068/copy_as_org_mode-0.2.0.xpi";
+    };
+    # Org Capture
+    "{ddefd400-12ea-4264-8166-481f23abaa87}" = {
+      installation_mode = "force_installed";
+      install_url = "https://addons.mozilla.org/firefox/downloads/file/4272196/org_capture-0.2.2resigned1.xpi";
+    };
+
+    # Proton Pass
+    "78272b6fa58f4a1abaac99321d503a20@proton.me" = {
+      installation_mode = "force_installed";
+      install_url = "https://addons.mozilla.org/firefox/downloads/file/5055526/proton_pass-1.41.1.xpi";
     };
   };
   added-engines = [
@@ -112,12 +130,7 @@ with lib;
         enable = true;
         languagePacks = [ "en-GB" ];
         policies = {
-          ExtensionSettings = extensions // {
-            "78272b6fa58f4a1abaac99321d503a20@proton.me" = {
-              installation_mode = "normal_installed";
-              install_url = "https://addons.mozilla.org/firefox/downloads/latest/proton-pass/latest.xpi";
-            };
-          };
+          ExtensionSettings = extensions;
           SanitizeOnShutdown = {
             Cache = true;
             Cookies = false;
