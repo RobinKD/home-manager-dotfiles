@@ -36,11 +36,28 @@ hl.window_rule({
 
 -- Hyprland-run windowrule
 hl.window_rule({
+	name = "everythingFloat",
+	match = {
+		class = ".*",
+	},
+	float = true,
+})
+
+hl.window_rule({
 	name = "maximizedApps",
 	match = {
-		class = "^(firefox|librewolf)$",
+		class = "^(TradingView)$",
 	},
 	maximize = true,
+	float = false,
+})
+
+hl.window_rule({
+	name = "noFloat",
+	match = {
+		class = "^(vesktop|com.slack.Slack|org.signal.Signal)$",
+	},
+	float = false,
 })
 
 hl.window_rule({
@@ -90,7 +107,6 @@ hl.window_rule({
 	},
 	border_size = 0,
 })
-
 hl.window_rule({
 	name = "alwaysFloat",
 	match = {
