@@ -56,7 +56,7 @@ hl.window_rule({
 hl.window_rule({
 	name = "noFloat",
 	match = {
-		class = "^(vesktop|com.slack.Slack|org.signal.Signal)$",
+		class = "^(vesktop|com.slack.Slack|org.signal.Signal|.*Emacs.*)$",
 	},
 	float = false,
 })
